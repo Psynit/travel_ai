@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8000/api/',
+    baseURL:"https://travel-ai-1-5mzd.onrender.com",
     withCredentials: true, // Important for session cookies
     headers: {
         'Content-Type': 'application/json',
