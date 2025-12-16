@@ -24,9 +24,12 @@ const Packages = () => {
     if (loading) return <div className="text-center mt-5"><div className="spinner-border text-primary"></div></div>;
 
     const getImageUrl = (url) => {
+    const BACKEND_URL = "https://travel-ai-1-5mzd.onrender.com";
+
+    const getImageUrl = (url) => {
         if (!url) return '';
         if (url.startsWith('http')) return url;
-        return `http://localhost:8000${url}?v=2`;
+        return `${BACKEND_URL}${url}`;
     };
 
     const filteredPackages = packages.filter(pkg =>
@@ -137,5 +140,5 @@ const Packages = () => {
         </div>
     );
 };
-
+}
 export default Packages;
