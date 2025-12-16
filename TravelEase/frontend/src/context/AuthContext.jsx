@@ -23,23 +23,29 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            const res = await api.post('login/', { username, password });
-            setUser(res.data.user);
+            await api.post('login/', { username, password });
             return { success: true };
         } catch (err) {
-            return { success: false, error: err.response?.data?.error || 'Login failed' };
+            return {
+                success: false,
+                error: err.response?.data?.error || 'Login failed'
+            };
         }
     };
 
+
     const register = async (userData) => {
         try {
-            const res = await api.post('register/', userData);
-            setUser(res.data.user);
+            await api.post('register/', userData);
             return { success: true };
         } catch (err) {
-            return { success: false, error: err.response?.data?.error || 'Registration failed' };
+            return {
+                success: false,
+                error: err.response?.data?.error || 'Registration failed'
+            };
         }
     };
+
 
     const logout = async () => {
         try {
