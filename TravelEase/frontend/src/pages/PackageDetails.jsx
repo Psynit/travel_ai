@@ -19,11 +19,14 @@ const PackageDetails = () => {
     if (loading) return <div className="text-center mt-5"><div className="spinner-border"></div></div>;
     if (!pkg) return <div className="text-center mt-5">Package not found.</div>;
 
+   const BACKEND_URL = "https://travel-ai-1-5mzd.onrender.com";
+
     const getImageUrl = (url) => {
         if (!url) return '';
         if (url.startsWith('http')) return url;
-        return `http://localhost:8000${url}?v=2`;
+        return `${BACKEND_URL}${url}`;
     };
+
 
     return (
         <div className="min-vh-100" style={{
