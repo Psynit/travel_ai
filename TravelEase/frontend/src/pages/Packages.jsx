@@ -26,8 +26,11 @@ const Packages = () => {
     const getImageUrl = (url) => {
         if (!url) return '';
         if (url.startsWith('http')) return url;
-        return `http://localhost:8000${url}?v=2`;
+
+        // use backend base URL dynamically
+        return `${import.meta.env.VITE_API_BASE_URL}${url}`;
     };
+
 
     const filteredPackages = packages.filter(pkg =>
         pkg.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
